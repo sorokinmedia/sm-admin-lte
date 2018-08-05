@@ -1,0 +1,14 @@
+.header-search {
+    width: 20%;
+    max-width: 160px;
+    min-width: 160px;
+    float: left;
+    margin: 8px;
+}
+
+.header-search-message {
+    position: absolute;
+    margin-left: 167px;
+    margin-top: -27px;
+    color: #fff;
+}
