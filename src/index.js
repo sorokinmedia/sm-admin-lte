@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import React, { Component } from 'react'
-import sorokinImg from './assets/sorokin.png'
 import Footer from './Footer/index'
 import Header from './Header/index'
 import { getMenuItemsAfter, getMenuItemsBefore } from './menu'
 import Sidebar from './Sidebar/index'
 import SidebarRight from './SidebarRight/index'
-import './style.css';
+import './style.css'
 
 export default class AppWrapper extends Component {
 
@@ -67,14 +66,14 @@ export default class AppWrapper extends Component {
 						{this.props.children}
 					</section>
 					<Footer
-						isShow={footer}
+						isShow={footer.isShow}
 					>
 						<div className="pull-left">
 							<div className="ft_copy">© Sorokin.Media 2017-2018</div>
 						</div>
 						<div className="pull-right">
 							<div className="ft_logo">
-								<img src={sorokinImg} alt="Cabinet" />
+								<img src={footer.footerLogo} alt="Cabinet" />
 							</div>
 						</div>
 					</Footer>
@@ -102,7 +101,10 @@ AppWrapper.propTypes = {
 	header: PropTypes.object,
 	sidebar: PropTypes.bool,
 	sidebarRight: PropTypes.bool,
-	footer: PropTypes.bool,
+	footer: PropTypes.shape({
+		footerLogo: PropTypes.string,
+		isShow: PropTypes.bool
+	}),
 	backIntoMainUser: PropTypes.func,
 	logout: PropTypes.func,
 	searchResult: PropTypes.func
