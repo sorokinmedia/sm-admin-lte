@@ -55,7 +55,7 @@ export default class AppWrapper extends Component {
 					/>
 
 					<Sidebar
-						isShow={sidebar}
+						sidebar={this.props.sidebar}
 						avatar={avatar}
 						userName={username}
 						match={match}
