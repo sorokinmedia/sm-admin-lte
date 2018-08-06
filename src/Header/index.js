@@ -5,10 +5,6 @@ import HeaderAuth from './HeaderAuth'
 import HeaderDropdown from './HeaderDropdown'
 import HeaderUserProfile from './HeaderUserProfile'
 import ProjectSearch from './ProjectSearch'
-import courseLogo from '../assets/101kurs.png'
-import courseMini from '../assets/101mini.png'
-import logo from '../assets/logo.png'
-import logoMini from '../assets/logo_mini.png'
 
 import './style.css'
 
@@ -51,7 +47,7 @@ export default class Header extends Component {
 	)
 
 	render() {
-		const { isShow, site, search, dropdown } = this.props.setup
+		const { isShow, site, search, dropdown, logo, logoMini } = this.props.setup
 		if (!isShow) return null
 		const {
 			menuItemsAfter = [],
@@ -61,16 +57,15 @@ export default class Header extends Component {
 			className,
 			isAuthorized
 		} = this.props
-		const logotype = site === 'course' ? courseLogo : logo
-		const logomini = site === 'course' ? courseMini : logoMini
+
 		return (
 			<header className={`main-header ${className}`}>
 				<Link to="/" className="logo">
 					<span className="logo-mini">
-						<img src={logomini} alt="Cabinet" />
+						<img src={logoMini} alt="Cabinet" />
 					</span>
 					<span className="logo-lg">
-						<img src={logotype} alt="Cabinet" id="logo" />
+						<img src={logo} alt="Cabinet" id="logo" />
 					</span>
 				</Link>
 				<nav className="navbar navbar-static-top">

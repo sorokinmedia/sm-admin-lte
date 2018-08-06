@@ -43,7 +43,6 @@ export default class AppWrapper extends Component {
 						avatar={avatar}
 						className={headerClassName}
 						setup={header}
-						site={site}
 						logout={this.props.logout}
 						menuItemsBefore={menuItemsBefore}
 						menuItemsAfter={menuItemsAfter}
