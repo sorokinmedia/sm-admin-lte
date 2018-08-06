@@ -1,15 +1,9 @@
 import { get } from 'lodash'
 import PropTypes from 'prop-types'
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { getCookie } from '../helpers/CookieHelper'
-import CourseLearnerMenu from './101CourseMenu/CourseLearnerMenu'
-import CourseSupportMenu from './101CourseMenu/CourseSupportMenu'
-import AdminMenu from './AdminMenu'
-import AnalyticMenu from './AnalyticMenu'
-import AnalyticToolsMenu from './AnalyticToolsMenu'
-import CourseAdminMenu from './101CourseMenu/CourseAdminMenu'
-import ManagerMenu from './ManagerMenu'
-import MonetizerMenu from './MonetizerMenu'
+import CourseMenu from './101CourseMenu'
+import SpaceMenu from './SpaceMenu'
 
 class Sidebar extends Component {
 
@@ -31,10 +25,25 @@ class Sidebar extends Component {
 
 	render() {
 		if (!this.props.sidebar.isShow) return null
-		const { avatar, userName, leftMenu, match } = this.props
+		const { avatar, userName, leftMenu, match, back } = this.props
 		const isUserView = getCookie('auth_token_main')
 		const isUserViewCourse = getCookie('auth_token')
 		if (!get(leftMenu, 'data')) return null
+		const menu = this.props.sidebar.menu === 'course'
+			? (<CourseMenu
+				onLink={this.onLink}
+				match={match}
+				back={back}
+				isUserViewCourse={isUserViewCourse}
+				leftMenu={leftMenu}
+			/>)
+
+			: (<SpaceMenu
+				leftMenu={leftMenu}
+				match={match}
+				onLink={this.onLink}
+			/>)
+
 		return (
 			<aside
 				className="main-sidebar"
@@ -64,61 +73,7 @@ class Sidebar extends Component {
 								</li>
 							</ul>)
 						: ''}
-					{this.props.courseMenu
-						? (
-							<Fragment>
-								<CourseAdminMenu
-									isUserViewCourse={isUserViewCourse}
-									menus={leftMenu.data.menus}
-									match={match}
-									onLink={this.onLink}
-									back={this.props.back}
-								/>
-								<CourseSupportMenu
-									menus={leftMenu.data.menus}
-									match={match}
-									onLink={this.onLink}
-								/>
-								<CourseLearnerMenu
-									menus={leftMenu.data.menus}
-									match={match}
-									onLink={this.onLink}
-								/>
-							</Fragment>) : ''}
-					{this.props.sidebar.menu
-						?
-						(
-							<Fragment>
-								<AdminMenu
-									menus={leftMenu.data.menus}
-									onLink={this.onLink}
-									match={match}
-								/>
-								<AnalyticMenu
-									menus={leftMenu.data.menus}
-									onLink={this.onLink}
-									match={match}
-								/>
-								<AnalyticToolsMenu
-									menus={leftMenu.data.menus}
-									onLink={this.onLink}
-									match={match}
-								/>
-								<ManagerMenu
-									menus={leftMenu.data.menus}
-									sites={leftMenu.data.sites}
-									onLink={this.onLink}
-									match={match}
-								/>
-								<MonetizerMenu
-									menus={leftMenu.data.menus}
-									onLink={this.onLink}
-									match={match}
-								/>
-							</Fragment>
-						)
-						: ''}
-
+					{menu}
 				</section>
 			</aside>)
 	}
@@ -129,10 +84,11 @@ Sidebar.propTypes = {
 	site: PropTypes.string,
 	back: PropTypes.func,
 	leftMenu: PropTypes.object,
-	sidebar: PropTypes.object,
+	sidebar: PropTypes.shape({
+		isShow: PropTypes.bool,
+		menu: PropTypes.string
+	}),
 	match: PropTypes.object,
-	courseMenu: PropTypes.bool,
-	space: PropTypes.bool,
 	userName: PropTypes.string
 }
 

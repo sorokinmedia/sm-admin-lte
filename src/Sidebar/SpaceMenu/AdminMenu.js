@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import menuDecorator from './menuDecorator'
-import SidebarLink from './SidebarLink/index'
+import menuDecorator from '../menuDecorator'
+import SidebarLink from '../SidebarLink/index'
 
 function AdminMenu(props) {
 	return (
