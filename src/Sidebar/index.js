@@ -30,7 +30,7 @@ class Sidebar extends Component {
 	}
 
 	render() {
-		if (!this.props.isShow) return null
+		if (!this.props.sidebar.isShow) return null
 		const { avatar, userName, leftMenu, match } = this.props
 		const isUserView = getCookie('auth_token_main')
 		const isUserViewCourse = getCookie('auth_token')
@@ -85,7 +85,7 @@ class Sidebar extends Component {
 									onLink={this.onLink}
 								/>
 							</Fragment>) : ''}
-					{this.props.space
+					{this.props.sidebar.menu
 						?
 						(
 							<Fragment>
@@ -129,10 +129,10 @@ Sidebar.propTypes = {
 	site: PropTypes.string,
 	back: PropTypes.func,
 	leftMenu: PropTypes.object,
+	sidebar: PropTypes.object,
 	match: PropTypes.object,
 	courseMenu: PropTypes.bool,
 	space: PropTypes.bool,
-	isShow: PropTypes.bool,
 	userName: PropTypes.string
 }
 
