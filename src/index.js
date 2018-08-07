@@ -34,7 +34,7 @@ export default class AppWrapper extends Component {
 		// after user profile
 		const menuItemsAfter = getMenuItemsAfter()
 		const headerClassName = 'class-name'
-
+		AppWrapper.displayName = AppWrapper.displayName || AppWrapper.name || 'AppWrapper'
 		return (
 			<div className={`app-wrapper ${this.props.wrapClass}`}>
 				<div className="wrapper" style={{ height: 'auto', minHeight: '100%' }}>
@@ -99,7 +99,7 @@ AppWrapper.propTypes = {
 	children: PropTypes.node,
 	courseMenu: PropTypes.bool,
 	header: PropTypes.object,
-	sidebar: PropTypes.bool,
+	sidebar: PropTypes.object,
 	sidebarRight: PropTypes.bool,
 	footer: PropTypes.shape({
 		footerLogo: PropTypes.string,
