@@ -5,7 +5,8 @@ import { getCookie } from '../helpers/CookieHelper'
 import CourseMenu from './101CourseMenu'
 import SpaceMenu from './SpaceMenu'
 
-class Sidebar extends Component {
+export default class Sidebar extends Component {
+	static displayName = 'Sidebar'
 
 	constructor(props) {
 		super(props)
@@ -92,5 +93,5 @@ Sidebar.propTypes = {
 	userName: PropTypes.string
 }
 
-export default Sidebar
+
 
