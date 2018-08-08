@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function HeaderUserProfile(props) {
-	const { userName, avatar } = props
+	const { userName, avatar, userProfileLink } = props
 
 	return (
 		<li className="user user-menu dropdown">
@@ -26,7 +26,7 @@ export default function HeaderUserProfile(props) {
 				</li>
 				<li className="user-footer dropdown-header">
 					<div className="pull-left">
-						<Link className="btn btn-default btn-flat" to="/user/profile/index">
+						<Link className="btn btn-default btn-flat" to={userProfileLink}>
 							Профиль
 						</Link>
 					</div>
@@ -48,5 +48,10 @@ export default function HeaderUserProfile(props) {
 HeaderUserProfile.propTypes = {
 	handleLogout: PropTypes.func,
 	userName: PropTypes.string,
-	avatar: PropTypes.string
+	avatar: PropTypes.string,
+	userProfileLink: PropTypes.string
+}
+
+HeaderUserProfile.defaultProps = {
+	userProfileLink: '/user/profile/index'
 }

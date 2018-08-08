@@ -24,26 +24,36 @@ export default class Sidebar extends Component {
 		document.documentElement.scrollTop = 0
 	}
 
+	menu = () => {
+		const { leftMenu, sidebar, match, back } = this.props
+		const isUserViewCourse = getCookie('auth_token')
+		switch (sidebar.menu) {
+			case 'course':
+				return (
+					<CourseMenu
+						onLink={this.onLink}
+						match={match}
+						back={back}
+						isUserViewCourse={isUserViewCourse}
+						leftMenu={leftMenu}
+					/>)
+			case 'space':
+				return (
+					<SpaceMenu
+						leftMenu={leftMenu}
+						match={match}
+						onLink={this.onLink}
+					/>)
+			default:
+				return <div>default</div>
+		}
+	}
+
 	render() {
 		if (!this.props.sidebar.isShow) return null
-		const { avatar, userName, leftMenu, match, back } = this.props
+		const { avatar, userName, leftMenu } = this.props
 		const isUserView = getCookie('auth_token_main')
-		const isUserViewCourse = getCookie('auth_token')
 		if (!get(leftMenu, 'data')) return null
-		const menu = this.props.sidebar.menu === 'course'
-			? (<CourseMenu
-				onLink={this.onLink}
-				match={match}
-				back={back}
-				isUserViewCourse={isUserViewCourse}
-				leftMenu={leftMenu}
-			/>)
-
-			: (<SpaceMenu
-				leftMenu={leftMenu}
-				match={match}
-				onLink={this.onLink}
-			/>)
 
 		return (
 			<aside
@@ -74,7 +84,7 @@ export default class Sidebar extends Component {
 								</li>
 							</ul>)
 						: ''}
-					{menu}
+					{this.menu()}
 				</section>
 			</aside>)
 	}
@@ -92,6 +102,3 @@ Sidebar.propTypes = {
 	match: PropTypes.object,
 	userName: PropTypes.string
 }
-
-
-

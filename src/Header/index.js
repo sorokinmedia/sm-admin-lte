@@ -47,7 +47,7 @@ export default class Header extends Component {
 	)
 
 	render() {
-		const { isShow, site, search, dropdown, logo, logoMini } = this.props.setup
+		const { isShow, site, search, dropdown, logo, logoMini, userProfileLink } = this.props.setup
 		if (!isShow) return null
 		const {
 			menuItemsAfter = [],
@@ -87,6 +87,7 @@ export default class Header extends Component {
 										userName={userName}
 										avatar={avatar}
 										handleLogout={this.handleLogout}
+										userProfileLink={userProfileLink}
 									/>
 									{dropdown && this.renderHeaderItems(menuItemsAfter)}
 								</ul>)
