@@ -37,7 +37,7 @@ export default class AppWrapper extends Component {
 		return (
 			<div
 				className={`app-wrapper ${this.props.wrapClass}`}
-				style={{ overflow: 'hidden', ...style }}
+				style={{ overflow: 'hidden', style }}
 			>
 				<div className="wrapper" style={{ height: 'auto', minHeight: '100%' }}>
 					<Header
