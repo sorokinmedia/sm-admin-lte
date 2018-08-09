@@ -5,7 +5,6 @@ import Header from '../Header/index'
 import { getMenuItemsAfter, getMenuItemsBefore } from './menu'
 import Sidebar from '../Sidebar/index'
 import SidebarRight from '../SidebarRight/index'
-import './style.css'
 
 export default class AppWrapper extends Component {
 
@@ -16,7 +15,7 @@ export default class AppWrapper extends Component {
 
 	render() {
 		const {
-			userData, match, site, header, footer, sidebar, sidebarRight
+			userData, match, site, header, footer, sidebar, sidebarRight, appWrapper: { style }
 		} = this.props
 
 		const { data = {} } = userData
@@ -36,7 +35,10 @@ export default class AppWrapper extends Component {
 		const headerClassName = 'class-name'
 		AppWrapper.displayName = AppWrapper.displayName || AppWrapper.name || 'AppWrapper'
 		return (
-			<div className={`app-wrapper ${this.props.wrapClass}`}>
+			<div
+				className={`app-wrapper ${this.props.wrapClass}`}
+				style={{ overflow: 'hidden', style }}
+			>
 				<div className="wrapper" style={{ height: 'auto', minHeight: '100%' }}>
 					<Header
 						avatar={avatar}
@@ -101,6 +103,7 @@ AppWrapper.propTypes = {
 	header: PropTypes.object,
 	sidebar: PropTypes.object,
 	sidebarRight: PropTypes.bool,
+	appWrapper: PropTypes.object,
 	footer: PropTypes.shape({
 		footerLogo: PropTypes.string,
 		isShow: PropTypes.bool
@@ -119,5 +122,10 @@ AppWrapper.defaultProps = {
 	header: false,
 	sidebar: false,
 	sidebarRight: false,
-	footer: false
+	footer: false,
+	appWrapper: {
+		style: {
+			paddingTop: '15px'
+		}
+	}
 }

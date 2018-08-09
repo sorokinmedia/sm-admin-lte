@@ -6,8 +6,6 @@ import HeaderDropdown from './HeaderDropdown'
 import HeaderUserProfile from './HeaderUserProfile'
 import ProjectSearch from './ProjectSearch'
 
-import './style.css'
-
 // const logoPath = location.hostname === 'localhost' ? '/build' : '/img'
 
 export default class Header extends Component {
