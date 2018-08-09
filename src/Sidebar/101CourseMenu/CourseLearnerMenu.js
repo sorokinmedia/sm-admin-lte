@@ -11,7 +11,7 @@ function CourseLearnerMenu(props) {
 			<li className="header"><span><span>Меню ученика </span></span></li>
 			<li>
 				<SidebarLink
-					to="/support/dashboard/"
+					to="/learner/course/my"
 					onClick={props.onLink}
 					match={props.match.path}
 				>
@@ -21,7 +21,7 @@ function CourseLearnerMenu(props) {
 			</li>
 			<li>
 				<SidebarLink
-					to="/support/dashboard/"
+					to="/learner/product/index"
 					onClick={props.onLink}
 					match={props.match.path}
 				>
