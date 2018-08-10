@@ -17,6 +17,12 @@ function CourseLearnerMenu(props) {
 				>
 					<i className="fa fa-graduation-cap" />
 					<span>Мои курсы</span>
+					{props.courseCount
+						? (
+							<span className="pull-right-container">
+								<small className="label pull-right bg-green">{props.myCourseCount}</small>
+							</span>)
+						: ''}
 				</SidebarLink>
 			</li>
 			<li>
@@ -43,6 +49,7 @@ function CourseLearnerMenu(props) {
 CourseLearnerMenu.propTypes = {
 	isUserViewCourse: PropTypes.bool,
 	match: PropTypes.object,
+	myCourseCount: PropTypes.number,
 	courseCount: PropTypes.number,
 	back: PropTypes.func,
 	onLink: PropTypes.func

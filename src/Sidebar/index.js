@@ -31,6 +31,7 @@ export default class Sidebar extends Component {
 			case 'course':
 				return (
 					<CourseMenu
+						sidebar={sidebar}
 						onLink={this.onLink}
 						match={match}
 						back={back}
