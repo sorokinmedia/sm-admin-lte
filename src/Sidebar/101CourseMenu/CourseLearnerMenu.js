@@ -26,7 +26,13 @@ function CourseLearnerMenu(props) {
 					match={props.match.path}
 				>
 					<i className="fa fa-book" />
-					<span>Продукты</span>
+					<span>Список курсов</span>
+					{props.courseCount
+						? (
+							<span className="pull-right-container">
+								<small className="label pull-right bg-primary">{props.courseCount}</small>
+							</span>)
+						: ''}
 				</SidebarLink>
 			</li>
 		</ul>
@@ -37,6 +43,7 @@ function CourseLearnerMenu(props) {
 CourseLearnerMenu.propTypes = {
 	isUserViewCourse: PropTypes.bool,
 	match: PropTypes.object,
+	courseCount: PropTypes.number,
 	back: PropTypes.func,
 	onLink: PropTypes.func
 }
