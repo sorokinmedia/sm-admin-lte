@@ -1,6 +1,6 @@
 {
 	"name": "sm-admin-lte",
-	"version": "1.0.15",
+	"version": "1.0.16",
 	"description": "Common frontend components for SM",
 	"main": "dist/index.js",
 	"repository": {
