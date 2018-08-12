@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
 import React from 'react'
+import { getCookie } from '../../helpers/CookieHelper'
 import menuDecorator from '../menuDecorator'
 import SidebarLink from '../SidebarLink/index'
 
 function CourseAdminMenu(props) {
+	const isUserView = getCookie('auth_token_main')
 	const intoBack = (
 		<li>
 			<a
@@ -30,7 +32,7 @@ function CourseAdminMenu(props) {
 	return (
 		<ul className="sidebar-menu tree">
 			<li className="header"><span><span>Админ меню</span></span></li>
-			{props.isUserViewCourse ? intoBack : users}
+			{isUserView ? intoBack : users}
 			<li>
 				<a
 					href="https://backend.101kurs.com"

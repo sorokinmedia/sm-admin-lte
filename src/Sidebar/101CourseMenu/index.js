@@ -8,7 +8,6 @@ function CourseMenu({ isUserViewCourse, leftMenu, match, onLink, back, sidebar }
 	return (
 		<Fragment>
 			<CourseAdminMenu
-				isUserViewCourse={isUserViewCourse}
 				menus={leftMenu.data.menus}
 				match={match}
 				onLink={onLink}

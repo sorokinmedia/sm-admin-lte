@@ -4,8 +4,6 @@ import menuDecorator from '../menuDecorator'
 import SidebarLink from '../SidebarLink/index'
 
 function CourseLearnerMenu(props) {
-
-
 	return (
 		<ul className="sidebar-menu tree">
 			<li className="header"><span><span>Меню ученика </span></span></li>
