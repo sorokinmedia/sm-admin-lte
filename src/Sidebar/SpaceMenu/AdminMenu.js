@@ -6,7 +6,6 @@ import SidebarLink from '../SidebarLink/index'
 
 function AdminMenu(props) {
 	const isUserView = getCookie('auth_token_main')
-
 	return (
 		<Fragment>
 			{isUserView

@@ -5,7 +5,6 @@ export default (CustomComponent, defaultState) => class DecoratedComponent exten
 		const { menus } = this.props
 		const { menuId } = defaultState
 		const show = menus.includes(menuId)
-
 		return show ? <CustomComponent {...this.props} /> : null
 	}
 }

@@ -1,6 +1,6 @@
 import { get } from 'lodash'
 import PropTypes from 'prop-types'
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { getCookie } from '../helpers/CookieHelper'
 import CourseMenu from './101CourseMenu'
 import SpaceMenu from './SpaceMenu'
@@ -26,16 +26,35 @@ export default class Sidebar extends Component {
 
 	menu = () => {
 		const { leftMenu, sidebar, match, back } = this.props
+		const isUserView = getCookie('auth_token_main')
+
 		switch (sidebar.menu) {
 			case 'course':
 				return (
-					<CourseMenu
-						sidebar={sidebar}
-						onLink={this.onLink}
-						match={match}
-						back={back}
-						leftMenu={leftMenu}
-					/>)
+					<Fragment>
+						{isUserView
+							? (
+								<ul className="sidebar-menu tree">
+									<li>
+										<a
+											className="hovered"
+											onClick={() => back()}
+										>
+											<i className="fa fa-undo text-green" />
+											<span>На основного</span>
+										</a>
+									</li>
+								</ul>)
+							: ''}
+						<CourseMenu
+							sidebar={sidebar}
+							onLink={this.onLink}
+							match={match}
+							back={back}
+							leftMenu={leftMenu}
+						/>
+					</Fragment>
+				)
 			case 'space':
 				return (
 					<SpaceMenu
@@ -68,7 +87,6 @@ export default class Sidebar extends Component {
 							<a href="#"><i className="fa fa-circle text-success" />Online</a>
 						</div>
 					</div>
-
 					{this.menu()}
 				</section>
 			</aside>)

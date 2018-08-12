@@ -53,4 +53,4 @@ CourseLearnerMenu.propTypes = {
 	onLink: PropTypes.func
 }
 
-export default menuDecorator(CourseLearnerMenu, { menuId: 'admin' })
+export default menuDecorator(CourseLearnerMenu, { menuId: 'learner' })
