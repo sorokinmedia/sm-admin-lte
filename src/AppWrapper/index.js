@@ -8,14 +8,14 @@ import SidebarRight from '../SidebarRight/index'
 
 export default class AppWrapper extends Component {
 
-	handleClick = (ev) => {
+	handleClick = () => {
 		document.querySelector('[data-toggle="control-sidebar"]')
 			.click()
 	}
 
 	render() {
 		const {
-			userData, match, site, header, footer, sidebar, sidebarRight, appWrapper: { style }
+			userData, match, header, footer, sidebar, sidebarRight, appWrapper: { style }
 		} = this.props
 
 		const { data = {} } = userData
@@ -29,7 +29,7 @@ export default class AppWrapper extends Component {
 
 		const isAdmin = data.role === 'Администратор'
 		// before user profile
-		const menuItemsBefore = getMenuItemsBefore({ notifications, isAdmin, site })
+		const menuItemsBefore = getMenuItemsBefore({ notifications, isAdmin, header })
 		// after user profile
 		const menuItemsAfter = getMenuItemsAfter()
 		const headerClassName = 'class-name'
@@ -96,7 +96,6 @@ AppWrapper.propTypes = {
 	match: PropTypes.object,
 	searchProject: PropTypes.object,
 	leftMenu: PropTypes.object,
-	site: PropTypes.string,
 	wrapClass: PropTypes.string,
 	children: PropTypes.node,
 	courseMenu: PropTypes.bool,

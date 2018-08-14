@@ -47,39 +47,47 @@ function adminItems(site) {
 
 // before user profile
 /** @type {Array<MenuItem>} */
-export function getMenuItemsBefore({ notifications, isAdmin, site }) {
-	const menuList = [{
-		name: 'notifications',
-		dropdown: {
-			title: 'Непрочитанных уведомлений ' + notifications,
-			icon: 'fa fa-bell-o',
-			count: notifications,
-			countIcon: 'label label-warning',
-			items: [{
-				title: 'Все уведомления',
-				href: '/notificator/default/index',
-				icon: 'fa fa-envelope-o text-green'
-			}, {
-				title: 'Настройка уведомлений',
-				href: '/user/profile/notifications',
-				icon: 'fa fa-sliders text-green'
-			}],
-			name: 'notifications'
-		}
-	},
-	{
-		name: 'billing',
-		site: 'course',
-		dropdown: {
-			icon: 'fa fa-dollar',
-			items: [{
-				title: 'Ваш счет',
-				href: '/billing',
-				icon: 'fa fa-money text-green'
-			}],
-			name: 'billing'
-		}
-	}]
+export function getMenuItemsBefore({
+	notifications,
+	isAdmin,
+	settings: {
+		site,
+		links: { all = '/notificator/default/index', setup = '/user/profile/notifications' }
+	}
+}) {
+	const menuList = [
+		{
+			name: 'notifications',
+			dropdown: {
+				title: 'Непрочитанных уведомлений ' + notifications,
+				icon: 'fa fa-bell-o',
+				count: notifications,
+				countIcon: 'label label-warning',
+				items: [{
+					title: 'Все уведомления',
+					href: all,
+					icon: 'fa fa-envelope-o text-green'
+				}, {
+					title: 'Настройка уведомлений',
+					href: setup,
+					icon: 'fa fa-sliders text-green'
+				}],
+				name: 'notifications'
+			}
+		},
+		{
+			name: 'billing',
+			site: 'course',
+			dropdown: {
+				icon: 'fa fa-dollar',
+				items: [{
+					title: 'Ваш счет',
+					href: '/billing',
+					icon: 'fa fa-money text-green'
+				}],
+				name: 'billing'
+			}
+		}]
 	const filtered = menuList.filter(elem => elem.site !== site)
 	return [...(isAdmin ? adminItems(site) : []), ...filtered]
 
