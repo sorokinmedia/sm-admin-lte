@@ -26,16 +26,35 @@ export default class Sidebar extends Component {
 
 	menu = () => {
 		const { leftMenu, sidebar, match, back } = this.props
+		const isUserView = getCookie('auth_token_main')
+
 		switch (sidebar.menu) {
 			case 'course':
 				return (
-					<CourseMenu
-						sidebar={sidebar}
-						onLink={this.onLink}
-						match={match}
-						back={back}
-						leftMenu={leftMenu}
-					/>
+					<Fragment>
+						{isUserView
+							? (
+								<ul className="sidebar-menu tree">
+									<li className="header"><span><span>Админ меню</span></span></li>
+									<li>
+										<a
+											className="hovered"
+											onClick={() => back()}
+										>
+											<i className="fa fa-undo text-green" />
+											<span>На основного</span>
+										</a>
+									</li>
+								</ul>)
+							: ''}
+						<CourseMenu
+							sidebar={sidebar}
+							onLink={this.onLink}
+							match={match}
+							back={back}
+							leftMenu={leftMenu}
+						/>
+					</Fragment>
 				)
 			case 'space':
 				return (
