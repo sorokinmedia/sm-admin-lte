@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import React from 'react'
+import React, { Fragment } from 'react'
 import { getCookie } from '../../helpers/CookieHelper'
 import menuDecorator from '../menuDecorator'
 import SidebarLink from '../SidebarLink/index'
@@ -31,20 +31,23 @@ function CourseAdminMenu(props) {
 		</li>)
 
 	return (
-		<ul className="sidebar-menu tree">
-			<li className="header"><span><span>Админ меню</span></span></li>
-			{!isUserView ? users : backToMain}
-			<li>
-				<a
-					href="https://backend.101kurs.com"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<i className="fa fa-cogs text-green" />
-					<span>Бэкенд</span>
-				</a>
-			</li>
-		</ul>
+		<Fragment>
+			{isUserView ? backToMain : ''}
+			<ul className="sidebar-menu tree">
+				<li className="header"><span><span>Админ меню</span></span></li>
+				{!isUserView ? users : ''}
+				<li>
+					<a
+						href="https://backend.101kurs.com"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						<i className="fa fa-cogs text-green" />
+						<span>Бэкенд</span>
+					</a>
+				</li>
+			</ul>
+		</Fragment>
 	)
 
 }
