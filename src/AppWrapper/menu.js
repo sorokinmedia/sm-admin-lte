@@ -50,7 +50,7 @@ function adminItems(site) {
 export function getMenuItemsBefore({
 	notifications,
 	isAdmin,
-	settings: {
+	header: {
 		site,
 		links: { all = '/notificator/default/index', setup = '/user/profile/notifications' }
 	}
