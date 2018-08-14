@@ -6,7 +6,18 @@ import SidebarLink from '../SidebarLink/index'
 
 function CourseAdminMenu(props) {
 	const isUserView = getCookie('auth_token_main')
-
+	const backToMain = (
+		<ul className="sidebar-menu tree">
+			<li>
+				<a
+					className="hovered"
+					onClick={() => props.back()}
+				>
+					<i className="fa fa-undo text-green" />
+					<span>На основного</span>
+				</a>
+			</li>
+		</ul>)
 	const users = (
 		<li>
 			<SidebarLink
@@ -22,7 +33,7 @@ function CourseAdminMenu(props) {
 	return (
 		<ul className="sidebar-menu tree">
 			<li className="header"><span><span>Админ меню</span></span></li>
-			{!isUserView ? users : ''}
+			{!isUserView ? users : backToMain}
 			<li>
 				<a
 					href="https://backend.101kurs.com"
