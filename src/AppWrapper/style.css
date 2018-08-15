@@ -1,0 +1,7 @@
+.wrapper {
+	height: auto;
+	min-height: 100%
+}
+.app-wrapper {
+	overflow: hidden
+}

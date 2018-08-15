@@ -5,7 +5,7 @@ import Header from '../Header/index'
 import { getMenuItemsAfter, getMenuItemsBefore } from './menu'
 import Sidebar from '../Sidebar/index'
 import SidebarRight from '../SidebarRight/index'
-
+import './style.css';
 export default class AppWrapper extends Component {
 
 	handleClick = () => {
@@ -37,9 +37,9 @@ export default class AppWrapper extends Component {
 		return (
 			<div
 				className={`app-wrapper ${this.props.wrapClass}`}
-				style={{ overflow: 'hidden', style }}
+				style={{ style }}
 			>
-				<div className="wrapper" style={{ height: 'auto', minHeight: '100%' }}>
+				<div className="wrapper" >
 					<Header
 						avatar={avatar}
 						className={headerClassName}
