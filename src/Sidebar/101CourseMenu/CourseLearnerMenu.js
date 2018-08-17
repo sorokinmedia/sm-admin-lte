@@ -30,7 +30,7 @@ function CourseLearnerMenu(props) {
 					match={props.match.path}
 				>
 					<i className="fa fa-book" />
-					<span>Список курсов</span>
+					<span>Все товары</span>
 					{props.courseCount
 						? (
 							<span className="pull-right-container">
