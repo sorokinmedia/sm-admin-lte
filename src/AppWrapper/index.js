@@ -6,6 +6,7 @@ import { getMenuItemsAfter, getMenuItemsBefore } from './menu'
 import Sidebar from '../Sidebar/index'
 import SidebarRight from '../SidebarRight/index'
 import './style.css';
+
 export default class AppWrapper extends Component {
 
 	handleClick = () => {
@@ -23,7 +24,7 @@ export default class AppWrapper extends Component {
 
 		const {
 			notifications,
-			avatar = 'http://www.gravatar.com/avatar/dc36f5a91f271af325184ece55b5dbd5?r=g&s=45',
+			avatar = 'https://www.gravatar.com/avatar/dc36f5a91f271af325184ece55b5dbd5?r=g&s=45',
 			username
 		} = data
 
