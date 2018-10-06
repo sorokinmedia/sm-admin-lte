@@ -1,9 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const iconLink = (href, icon, props = {}) => (
 	<a href={href} {...props}>
 		<i className={icon} />
 	</a>)
+
+const iconLinkRouter = (href, icon, props = {}) => (
+	<Link to={href} {...props}>
+		<i className={icon} />
+	</Link>)
 
 /**
  * @typedef MenuItem
@@ -48,7 +54,7 @@ function adminItems(site) {
 function supportItems() {
 	return [{
 		name: 'billing',
-		render: () => iconLink('/billing/default/index#orders', 'fa fa-dollar')
+		render: () => iconLinkRouter('/billing/default/index#orders', 'fa fa-dollar')
 	}]
 }
 
