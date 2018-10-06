@@ -29,6 +29,8 @@ export default class AppWrapper extends Component {
 		} = data
 
 		const { role } = data
+		const isAdmin = role === 'Администратор'
+
 		// before user profile
 		const menuItemsBefore = getMenuItemsBefore({ notifications, role, header })
 		// after user profile
