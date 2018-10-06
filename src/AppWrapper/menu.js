@@ -6,10 +6,14 @@ const iconLink = (href, icon, props = {}) => (
 		<i className={icon} />
 	</a>)
 
-const iconLinkRouter = (href, icon, props = {}) => (
-	<Link to={href} {...props}>
+const LinkRouter = (href, icon, props = {}) => (
+	<Link
+		to={href}
+		{...props}
+	>
 		<i className={icon} />
-	</Link>)
+	</Link>
+)
 
 /**
  * @typedef MenuItem
@@ -54,7 +58,7 @@ function adminItems(site) {
 function supportItems() {
 	return [{
 		name: 'billing',
-		render: () => iconLinkRouter('/billing/default/index#orders', 'fa fa-dollar')
+		render: () => LinkRouter('/billing/default/index#orders', 'fa fa-dollar')
 	}]
 }
 
