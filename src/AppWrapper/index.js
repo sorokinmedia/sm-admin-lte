@@ -5,7 +5,7 @@ import Header from '../Header/index'
 import { getMenuItemsAfter, getMenuItemsBefore } from './menu'
 import Sidebar from '../Sidebar/index'
 import SidebarRight from '../SidebarRight/index'
-import './style.css';
+import './style.css'
 
 export default class AppWrapper extends Component {
 
@@ -28,9 +28,9 @@ export default class AppWrapper extends Component {
 			username
 		} = data
 
-		const isAdmin = data.role === 'Администратор'
+		const { role } = data
 		// before user profile
-		const menuItemsBefore = getMenuItemsBefore({ notifications, isAdmin, header })
+		const menuItemsBefore = getMenuItemsBefore({ notifications, role, header })
 		// after user profile
 		const menuItemsAfter = getMenuItemsAfter()
 		const headerClassName = 'class-name'
@@ -40,7 +40,7 @@ export default class AppWrapper extends Component {
 				className={`app-wrapper ${this.props.wrapClass}`}
 				style={{ style }}
 			>
-				<div className="wrapper" >
+				<div className="wrapper">
 					<Header
 						avatar={avatar}
 						className={headerClassName}

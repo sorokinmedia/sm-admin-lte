@@ -4,8 +4,6 @@ import menuDecorator from '../menuDecorator'
 import SidebarLink from '../SidebarLink/index'
 
 function CourseSupportMenu(props) {
-
-
 	return (
 		<ul className="sidebar-menu tree">
 			<li className="header"><span><span>Саппорт меню</span></span></li>
@@ -18,8 +16,6 @@ function CourseSupportMenu(props) {
 					<i className="fa fa-dashboard text-green" />
 					<span>Главный экран</span>
 				</SidebarLink>
-
-
 			</li>
 		</ul>
 	)

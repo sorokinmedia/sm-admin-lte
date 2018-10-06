@@ -45,16 +45,25 @@ function adminItems(site) {
 	}]
 }
 
+function supportItems() {
+	return [{
+		name: 'billing',
+		render: () => iconLink('/billing/default/index#orders', 'fa fa-dollar')
+	}]
+}
+
 // before user profile
 /** @type {Array<MenuItem>} */
 export function getMenuItemsBefore({
 	notifications,
-	isAdmin,
+	role,
 	header: {
 		site,
 		links: { all = '/notificator/default/index', setup = '/user/profile/notifications' }
 	}
 }) {
+	const admin = role === 'Администратор'
+	const support = role === 'Саппорт'
 	const menuList = [
 		{
 			name: 'notifications',
@@ -89,7 +98,7 @@ export function getMenuItemsBefore({
 			}
 		}]
 	const filtered = menuList.filter(elem => elem.site !== site)
-	return [...(isAdmin ? adminItems(site) : []), ...filtered]
+	return [...(admin ? adminItems(site) : []), ...(support ? supportItems() : ''), ...filtered]
 
 }
 
