@@ -25,14 +25,16 @@ export default class AppWrapper extends Component {
 		const {
 			notifications,
 			avatar = 'https://www.gravatar.com/avatar/dc36f5a91f271af325184ece55b5dbd5?r=g&s=45',
-			username
+			username,
+			is_support,
+			jivosite
 		} = data
 
 		const { role } = data
 		const isAdmin = role === 'Администратор'
 
 		// before user profile
-		const menuItemsBefore = getMenuItemsBefore({ notifications, role, header })
+		const menuItemsBefore = getMenuItemsBefore({ notifications, role, header, is_support })
 		// after user profile
 		const menuItemsAfter = getMenuItemsAfter()
 		const headerClassName = 'class-name'
@@ -81,6 +83,24 @@ export default class AppWrapper extends Component {
 								<img src={footer.footerLogo} alt="Cabinet" />
 							</div>
 						</div>
+						{jivosite
+							? (
+								<script type='text/javascript'>
+									(function(){ var widget_id = 'm7KxeJ82jO';var d=document;var w=window;function l()
+
+								{var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;s.src = '//code.jivosite.com/script/widget/'+widget_id; var ss = document.getElementsByTagName('script')[0]; ss.parentNode.insertBefore(s, ss);}
+									if(d.readyState=='complete')
+
+								{l();}
+									else{if(w.attachEvent)
+
+								{w.attachEvent('onload',l);}
+									else
+
+								{w.addEventListener('load',l,false);}
+								}})();
+								</script>
+							) : null}
 					</Footer>
 					<SidebarRight
 						handleClick={this.handleClick}

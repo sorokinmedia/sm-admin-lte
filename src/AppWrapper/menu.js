@@ -70,7 +70,8 @@ export function getMenuItemsBefore({
 	header: {
 		site,
 		links: { all = '/notificator/default/index', setup = '/user/profile/notifications' }
-	}
+	},
+	is_support
 }) {
 	const admin = role === 'Администратор'
 	const support = role === 'Саппорт'
@@ -108,7 +109,9 @@ export function getMenuItemsBefore({
 			}
 		}]
 	const filtered = menuList.filter(elem => elem.site !== site)
-	return [...(admin ? adminItems(site) : []), ...(support ? supportItems() : ''), ...filtered]
+	return [...(admin ? adminItems(site) : []), ...(support && is_support
+		? supportItems()
+		: ''), ...filtered]
 
 }
 
