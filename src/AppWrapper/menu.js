@@ -74,7 +74,6 @@ export function getMenuItemsBefore({
 	is_support
 }) {
 	const admin = role === 'Администратор'
-	const support = role === 'Саппорт'
 	const menuList = [
 		{
 			name: 'notifications',
@@ -109,7 +108,7 @@ export function getMenuItemsBefore({
 			}
 		}]
 	const filtered = menuList.filter(elem => elem.site !== site)
-	return [...(admin ? adminItems(site) : []), ...(support && is_support
+	return [...(admin ? adminItems(site) : []), ...(is_support
 		? supportItems()
 		: ''), ...filtered]
 
