@@ -5,9 +5,7 @@ import menuDecorator from '../menuDecorator'
 
 function AnalyticMenu(props) {
 	return (
-		<ul
-			className="sidebar-menu tree"
-		>
+		<ul className="sidebar-menu tree">
 			<li className="header">Основное меню</li>
 			<li>
 				<NavLink to="/" onClick={props.onLink}>
@@ -25,6 +23,12 @@ function AnalyticMenu(props) {
 				<NavLink to="/project/default/index" onClick={props.onLink}>
 					<i className="fa fa-dashboard text-green" />
 					<span>Все проекты</span>
+				</NavLink>
+			</li>
+			<li>
+				<NavLink to="/project/finished" onClick={props.onLink}>
+					<i className="fa fa-flag text-green" />
+					<span>Финишированные проекты</span>
 				</NavLink>
 			</li>
 		</ul>)
