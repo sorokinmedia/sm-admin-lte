@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types'
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 function SidebarLink(props) {
 	const { path, to, className } = props
 	const active = path === to
 
 	return (
-		<NavLink {...props} className={className}>
+		<Link {...props} className={className}>
 			{props.children}
-		</NavLink>)
+		</Link>)
 }
 
 SidebarLink.propTypes = {
