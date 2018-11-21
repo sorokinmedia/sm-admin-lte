@@ -80,8 +80,8 @@ export function getMenuItemsBefore({
 			dropdown: {
 				title: 'Непрочитанных уведомлений ' + notifications,
 				icon: 'fa fa-bell-o',
-				count: notifications,
-				countIcon: 'label label-warning',
+				count: notifications ? notifications : '',
+				countIcon: notifications ? 'label label-warning' : '',
 				items: [{
 					title: 'Все уведомления',
 					href: all,
