@@ -25,7 +25,9 @@ function CourseAdminMenu(props) {
 			{!isUserView ? users : ''}
 			<li>
 				<a
-					href="https://backend.101kurs.com"
+					href={window.location.href.includes('kosmoz') ?
+						'http://backend.101kurs.kosmoz.online'
+						: 'https://backend.101kurs.com'}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
